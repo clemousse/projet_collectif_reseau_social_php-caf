@@ -30,7 +30,7 @@
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez les derniers messages de
-                        tous les utilisatrices du site.</p>
+                        toutes les utilisatrices du site.</p>
                 </section>
             </aside>
             <main>
@@ -54,10 +54,7 @@
                         <a href="">#piscitur</a>,
                     </footer>
                 </article> -->
-
                 <?php
-
-                include 'connection.php';
                 /*
                   // C'est ici que le travail PHP commence
                   // Votre mission si vous l'acceptez est de chercher dans la base
@@ -67,8 +64,8 @@
                   // plus généralement : https://www.php.net/manual/fr/mysqli.query.php
                  */
 
-                // Etape 1: Ouvrir une connexion avec la base de donnée.
-                $mysqli = new mysqli("localhost", "root", "Porto_14", "socialnetwork");
+                // Etape 1: Ouvrir une connexion avec la base de données.
+                include 'connection.php';
                 //verification
                 if ($mysqli->connect_errno)
                 {
@@ -129,16 +126,12 @@
                         <div>
                             <p><?php echo $post['content'] ?></p>
                         </div>
-                        <footer>
-                            <small>♥ <?php echo $post['like_number'] ?> </small>
-                            <a href=""><?php echo $post['taglist'] ?></a>,
-                        </footer>
+                        <?php include 'footer.php'; ?>
                     </article>
                     <?php
                     // avec le <?php ci-dessus on retourne en mode php 
                 }// cette accolade ferme et termine la boucle while ouverte avant.
                 ?>
-
             </main>
         </div>
     </body>

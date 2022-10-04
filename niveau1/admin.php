@@ -22,13 +22,12 @@
                     <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
                     <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
                 </ul>
-
             </nav>
         </header>
 
         <?php
         /**
-         * Etape 1: Ouvrir une connexion avec la base de donnée.
+         * Etape 1: Ouvrir une connexion avec la base de données.
          */
         // on va en avoir besoin pour la suite
         include 'connection.php';
@@ -55,7 +54,7 @@
                     exit();
                 }
 
-                /*
+                /*page
                  * Etape 3 : @todo : Afficher les mots clés en s'inspirant de ce qui a été fait dans news.php
                  * Attention à en pas oublier de modifier tag_id=321 avec l'id du mot dans le lien
                  */

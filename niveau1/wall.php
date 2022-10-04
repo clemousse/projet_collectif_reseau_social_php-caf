@@ -22,7 +22,6 @@
                     <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
                     <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
                 </ul>
-
             </nav>
         </header>
         <div id="wrapper">
@@ -57,8 +56,7 @@
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
                     <h3>Présentation</h3>
-                    <p>Sur cette page vous trouverez tous les message de l'utilisatrice : XXX
-                        (n° <?php echo $userId ?>)
+                    <p>Sur cette page vous trouverez tous les messages de l'utilisatrice : (n° <?php echo $userId ?>)
                     </p>
                 </section>
             </aside>
@@ -86,34 +84,23 @@
                 }
 
                 /**
-                 * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
+                 * Etape 4: @todo Parcourir les messages et remplir correctement le HTML avec les bonnes valeurs php
                  */
                 while ($post = $lesInformations->fetch_assoc())
                 {
-
                     echo "<pre>" . print_r($post, 1) . "</pre>";
                     ?>                
                     <article>
                         <h3>
-                            <time datetime='2020-02-01 11:12:13' >31 février 2010 à 11h12</time>
+                            <time datetime='<?php echo $post['author_name'] ?>' ><?php echo $post['created'] ?></time>
                         </h3>
-                        <address>par AreTirer</address>
+                        <address><?php echo $post['author_name'] ?></address>
                         <div>
-                            <p>Ceci est un paragraphe</p>
-                            <p>Ceci est un autre paragraphe</p>
-                            <p>... de toutes manières il faut supprimer cet 
-                                article et le remplacer par des informations en 
-                                provenance de la base de donnée</p>
-                        </div>                                            
-                        <footer>
-                            <small>♥ 132</small>
-                            <a href="">#lorem</a>,
-                            <a href="">#piscitur</a>,
-                        </footer>
+                            <p><?php echo $post['content'] ?></p>
+                        </div> 
+                        <?php include 'footer.php'; ?>
                     </article>
                 <?php } ?>
-
-
             </main>
         </div>
     </body>

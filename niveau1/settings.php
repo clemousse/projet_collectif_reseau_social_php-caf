@@ -17,12 +17,11 @@
             </nav>
             <nav id="user">
                 <a href="#">Profil</a>
-                <ul>7
+                <ul>
                     <li><a href="settings.php?user_id=5">Paramètres</a></li>
                     <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
                     <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
                 </ul>
-
             </nav>
         </header>
         <div id="wrapper" class='profile'>
@@ -47,7 +46,6 @@
                  * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
                  */
                 $userId = intval($_GET['user_id']);
-
                 /**
                  * Etape 2: se connecter à la base de donnée
                  */
@@ -73,7 +71,6 @@
                     echo("Échec de la requete : " . $mysqli->error);
                 }
                 $user = $lesInformations->fetch_assoc();
-
                 /**
                  * Etape 4: à vous de jouer
                  */
@@ -94,7 +91,6 @@
                         <dt>Nombre de "J'aime" reçus</dt>
                         <dd>53</dd>
                     </dl>
-
                 </article>
             </main>
         </div>
