@@ -8,7 +8,7 @@
     </head>
     <body>
         <?php
-            include 'header.php';
+            include ('header.php');
         ?>
         <div id="wrapper">
             <?php
@@ -26,7 +26,7 @@
             /**
              * Etape 2: se connecter à la base de donnée
              */
-            include 'connection.php';
+            include ('connection.php');
             ?>
             <aside>
                 <?php
@@ -91,7 +91,7 @@
                     <div>
                         <p><?php echo $post['content'] ?></p>
                     </div>                                            
-                    <?php include 'footer.php'; ?>
+                    <?php include ('footer.php'); ?>
                 </article>
                 <?php
                 }

@@ -8,18 +8,12 @@
     </head>
     <body>
         <?php
-            include 'header.php';
+            include ('header.php');
         /**
          * Etape 1: Ouvrir une connexion avec la base de données.
          */
-        // on va en avoir besoin pour la suite
-            include 'connection.php';
-        //verification
-        if ($mysqli->connect_errno)
-        {
-            echo("Échec de la connexion : " . $mysqli->connect_error);
-            exit();
-        }
+            include ('connection.php');
+        
         ?>
         <div id="wrapper" class='admin'>
             <aside>
