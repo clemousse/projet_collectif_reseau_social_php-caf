@@ -8,7 +8,7 @@
     </head>
     <body>
         <?php
-            include 'header.php';
+            include ('header.php');
         ?>
         <div id="wrapper" class='profile'>
 
@@ -35,7 +35,7 @@
                 /**
                  * Etape 2: se connecter à la base de donnée
                  */
-                include 'connection.php';
+                include ('connection.php');
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
                  */

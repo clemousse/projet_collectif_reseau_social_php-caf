@@ -8,7 +8,7 @@
     </head>
     <body>
         <?php
-            include 'header.php';
+            include ('header.php');
         ?>
         <div id="wrapper">
             <aside>
@@ -51,7 +51,7 @@
                  */
 
                 // Etape 1: Ouvrir une connexion avec la base de données.
-                include 'connection.php';
+                include ('connection.php');
                 //verification
                 if ($mysqli->connect_errno)
                 {
@@ -112,7 +112,7 @@
                         <div>
                             <p><?php echo $post['content'] ?></p>
                         </div>
-                        <?php include 'footer.php'; ?>
+                        <?php include ('footer.php'); ?>
                     </article>
                     <?php
                     // avec le <?php ci-dessus on retourne en mode php 
