@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
+<<<<<<< HEAD
         <header>
             <img src="Logo.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
@@ -24,6 +25,11 @@
                 </ul>
             </nav>
         </header>
+=======
+        <?php
+            include ('header.php');
+        ?>
+>>>>>>> 4bcbe74d9a01696a4c59919c82e11c8a483f043b
         <div id="wrapper" class='profile'>
 
 
@@ -49,7 +55,7 @@
                 /**
                  * Etape 2: se connecter à la base de donnée
                  */
-                include 'connection.php';
+                include ('connection.php');
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
                  */
