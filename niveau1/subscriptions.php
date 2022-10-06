@@ -8,15 +8,8 @@ include ('doctype.php');
             include ('header.php');
         ?>
         <div id="wrapper">
-            <aside>
-                <img src="Ecologirl3.jpg" alt="Portrait de l'utilisatrice"/>
-                <section>
-                    <h3>Présentation</h3>
-                    <p>Sur cette page vous trouverez la liste des personnes dont
-                        l'utilisatrice n° <?php echo intval($userId) ?>suit les messages
-                    </p>
-                </section>
-            </aside>
+            
+        <?php include ('photo.php');?>
             <main class='contacts'>
                 <?php
                 // Etape 2: se connecter à la base de données

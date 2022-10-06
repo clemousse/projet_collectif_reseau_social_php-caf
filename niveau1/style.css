@@ -104,7 +104,7 @@ body>header #user:hover ul{
 }
 #wrapper main article h3{
     margin:0;
-    padding:0;
+    padding:40;
     font-weight: normal;
     font-size:1em;
 
@@ -137,8 +137,8 @@ body>header #user:hover ul{
 #wrapper.admin article p{float:left;margin:0;}
 
 
-.parameters dl dt{float:left;font-weight: bold;line-height: 1.5em;}
-.parameters dl dd{margin-left:15em;line-height: 1.5em;}
+.parameters dl dt{float:left;font-weight: bold;line-height: 2em;}
+.parameters dl dd{margin-left:15em;line-height: 2em;}
 
 .contacts {
     display:flex;
@@ -147,7 +147,7 @@ body>header #user:hover ul{
     align-content: flex-start ;
 }
 .contacts article{
-    width:25em;
+    width:20em;
     height:7em;
     margin-right: 1em;
 }

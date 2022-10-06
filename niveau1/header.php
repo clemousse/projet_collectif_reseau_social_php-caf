@@ -4,7 +4,7 @@
     // Etape 3: récupérer le nom de l'utilisateur
     $laQuestionEnSql = "SELECT * FROM `tags`";
     $tags = $mysqli->query($laQuestionEnSql);
-    print_r ($tags);
+    //print_r ($tags);
 ?>
 <header>
     <img src="Logo.jpg" alt="Logo de notre réseau social"/>

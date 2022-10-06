@@ -6,15 +6,12 @@ include ('doctype.php');
     <body>
         <?php include ('header.php');?>
         <div id="wrapper">
+            <aside>
             <?php
             /**
              * Etape 2: se connecter à la base de donnée
              */
             include ('connection.php');
-            ?>
-
-            <aside>
-                <?php
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
                  */                
@@ -25,11 +22,7 @@ include ('doctype.php');
                 echo "<pre>" . print_r($user, 1) . "</pre>";
                 ?>
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
-                <section>
-                    <h3>Présentation</h3>
-                    <p>Sur cette page vous trouverez tous les messages de l'utilisatrice : (n° <?php echo $userId ?>)
-                    </p>
-                </section>
+                <?php include ('photo.php');?>
             </aside>
             <main>
                 <?php

@@ -6,15 +6,7 @@ include ('doctype.php');
         <?php
             include 'header.php';
         ?>
-        <div id="wrapper" class='profile'>
-            <aside>
-                <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
-                <section>
-                    <h3>Présentation</h3>
-                    <p>Sur cette page vous trouverez les informations de l'utilisatrice
-                        n° <?php echo intval($userId) ?></p>
-                </section>
-            </aside>
+        <div id="wrapper" class='profile'> 
             <main>
                 <?php
                 /**
@@ -68,6 +60,10 @@ include ('doctype.php');
                         <dd><?php echo($user['totalgiven']) ?></dd>
                         <dt>Nombre de 💪 reçus</dt>
                         <dd><?php echo($user['totalrecieved']) ?></dd>
+                        <dt>Modifier votre profil</dt>
+                        <dd> oui non</dd>
+                        <dt>Ajouter une photo</dt>
+                        <dd>oui non</dd>
                     </dl>
                 </article>
             </main>
