@@ -1,5 +1,4 @@
 <?php
-
 include ('connection.php');
 $laQuestionEnSql = "SELECT * FROM `users`";
 $lesInformations = $mysqli->query($laQuestionEnSql);
@@ -21,6 +20,7 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
             $user['password'] === $_POST['password']
         ) {
             $_SESSION['LOGGED_USER']=$user['email'];
+            $_SESSION['USER_ID']=$user['id'];
         } else {
             $errorMessage = sprintf('Les informations envoyées ne permettent pas de vous identifier : (%s/%s)',
                 $_POST['email'],

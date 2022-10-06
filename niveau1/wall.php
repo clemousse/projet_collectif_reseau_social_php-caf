@@ -1,26 +1,11 @@
-<!doctype html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>ReSoC - Mur</title> 
-        <meta name="author" content="Julien Falconnet">
-        <link rel="stylesheet" href="style.css"/>
-    </head>
+<?php  session_start();
+//Etape 1: Le mur concerne un utilisateur en particulier
+$userId=$_SESSION['USER_ID'];
+include ('doctype.php');
+?>
     <body>
-        <?php
-        include ('header.php');
-        ?>
+        <?php include ('header.php');?>
         <div id="wrapper">
-            <?php
-            /**
-             * Etape 1: Le mur concerne un utilisateur en particulier
-             * La première étape est donc de trouver quel est l'id de l'utilisateur
-             * Celui ci est indiqué en parametre GET de la page sous la forme user_id=...
-             * Documentation : https://www.php.net/manual/fr/reserved.variables.get.php
-             * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
-             */
-            $userId =intval($_GET['user_id']);
-            ?>
             <?php
             /**
              * Etape 2: se connecter à la base de donnée

@@ -1,11 +1,4 @@
-<!doctype html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>ReSoC - Les messages par mot-clé</title> 
-        <meta name="author" content="Julien Falconnet">
-        <link rel="stylesheet" href="style.css"/>
-    </head>
+<?php include ('doctype.php');?>
     <body>
         <?php
             include ('header.php');

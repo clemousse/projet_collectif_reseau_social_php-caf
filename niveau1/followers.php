@@ -1,11 +1,9 @@
-<!doctype html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>ReSoC - Mes abonné.e.s </title> 
-        <meta name="author" content="Julien Falconnet">
-        <link rel="stylesheet" href="style.css"/>
-    </head>
+<?php  session_start();
+//Etape 1: Le mur concerne un utilisateur en particulier
+$userId=$_SESSION['USER_ID'];
+
+include ('doctype.php');?>
+
     <body>
         <?php
             include ('header.php');
@@ -17,13 +15,11 @@
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez la liste des personnes qui
                         suivent les messages de l'utilisatrice
-                        n° <?php echo intval($_GET['user_id'])?></p>
+                        n° <?php echo intval($userId)?></p>
                 </section>
             </aside>
             <main class='contacts'>
                 <?php
-                // Etape 1: récupérer l'id de l'utilisateur
-                $userId = intval($_GET['user_id']);
                 // Etape 2: se connecter à la base de donnée
                 include ('connection.php');
                 // Etape 3: récupérer le nom de l'utilisateur

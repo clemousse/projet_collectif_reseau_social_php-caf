@@ -1,11 +1,8 @@
-<!doctype html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>ReSoC - Mes abonnements</title> 
-        <meta name="author" content="Julien Falconnet">
-        <link rel="stylesheet" href="style.css"/>
-    </head>
+<?php  session_start();
+// Etape 1: récupérer l'id de l'utilisateur
+$userId=$_SESSION['USER_ID'];
+include ('doctype.php');
+?>
     <body>
         <?php
             include ('header.php');
@@ -16,15 +13,12 @@
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez la liste des personnes dont
-                        l'utilisatrice n° <?php echo intval($_GET['user_id']) ?>
-                        suit les messages
+                        l'utilisatrice n° <?php echo intval($userId) ?>suit les messages
                     </p>
                 </section>
             </aside>
             <main class='contacts'>
                 <?php
-                // Etape 1: récupérer l'id de l'utilisateur
-                $userId = intval($_GET['user_id']);
                 // Etape 2: se connecter à la base de données
                 include 'connection.php';
                 // Etape 3: récupérer le nom de l'utilisateur
