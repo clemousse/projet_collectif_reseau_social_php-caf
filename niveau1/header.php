@@ -4,7 +4,10 @@
     // Etape 3: récupérer le nom de l'utilisateur
     $laQuestionEnSql = "SELECT * FROM `tags`";
     $tags = $mysqli->query($laQuestionEnSql);
-    //print_r ($tags);
+    // echo ('<pre>'.print_r ($tags).'</pre>');
+    // foreach ($tags as $tag) {
+    //     printf("%s (%s)\n", $tag["id"], $tag["label"]);
+    // }
 ?>
 <header>
     <img src="Logo.jpg" alt="Logo de notre réseau social"/>
@@ -20,24 +23,22 @@
             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-success" type="submit">Rechercher</button>
         </form>-->
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <button class="btn btn-outline-secondary" type="button">Rechercher</button>
-            </div>
-            <select class="custom-select" id="inputGroupSelect03">
-                <option selected>Choisissez votre tag</option>
-                <?php 
-                // Etape 4: créer les options de choix de tags
-                while ($tag = $tags->fetch_assoc())
-                {
+        <form action="tags.php" method="post">
+            <div class="input-group mb-3">
+                <select class="custom-select" id="inputGroupSelect" name="tag">
+                    <?php 
+                    // Etape 4: créer les options de choix de tags
+                    foreach ($tags as $tag) {?>
+                        <option value='<?php echo $tag['label']; ?>'><?php echo $tag['label'];?></option>
+                        <?php
+                    }
                     ?>
-                    <option value='<?php $tag['label'] ?>'><?php $tag['label']?></option>
-                    <?php
-                }
-                ?>
-            </select>
-        </div>
-    </div>
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">GO !</button>
+                </div>
+            </div>
+        </form>
     </nav>
     <nav id="user">
         <a href="#">Profil</a>

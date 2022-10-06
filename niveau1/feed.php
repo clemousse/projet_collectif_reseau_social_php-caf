@@ -1,15 +1,10 @@
 <?php  session_start();
 //Etape 1: Le mur concerne un utilisateur en particulier
 $userId=$_SESSION['USER_ID'];
-
 include ('doctype.php');
 ?>
-
-
     <body>
-        <?php
-            include ('header.php');
-        ?>
+        <?php include ('header.php');?>
         <div id="wrapper">
             <?php
             /**
@@ -28,17 +23,8 @@ include ('doctype.php');
                 $laQuestionEnSql = "SELECT * FROM `users` WHERE id= '$userId' ";
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 $user = $lesInformations->fetch_assoc();
-                //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
-                echo "<pre>" . print_r($user, 1) . "</pre>";
+                include ('photo.php');
                 ?>
-                <img src="Ecologirl3.jpg" alt="Portrait de l'utilisatrice"/>
-                <section>
-                    <h3>Présentation</h3>
-                    <p>Sur cette page vous trouverez tous les messages des utilisatrices
-                        auxquel est abonnée l'utilisatrice XXX
-                        (n° <?php echo $userId ?>)
-                    </p>
-                </section>
             </aside>
             <main>
                 <?php
@@ -77,11 +63,11 @@ include ('doctype.php');
                 ?>               
                 <article>
                     <h3>
-                        <time datetime='<?php echo $post['created'] ?>' ><?php echo $post['created'] ?></time>
+                        <time datetime='<?php echo $post['created'] ?>' ><?php echo $post['created']; ?></time>
                     </h3>
                     <address></address>
                     <div>
-                        <p><?php echo $post['content'] ?></p>
+                        <p><?php echo $post['content']; ?></p>
                     </div>                                            
                     <?php include ('footer.php'); ?>
                 </article>

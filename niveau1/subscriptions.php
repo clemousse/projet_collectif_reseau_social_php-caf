@@ -8,8 +8,9 @@ include ('doctype.php');
             include ('header.php');
         ?>
         <div id="wrapper">
-            
-        <?php include ('photo.php');?>
+            <aside>
+                <?php include ('photo.php');?>
+            </aside>
             <main class='contacts'>
                 <?php
                 // Etape 2: se connecter à la base de données

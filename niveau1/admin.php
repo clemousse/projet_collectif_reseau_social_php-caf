@@ -9,7 +9,6 @@ include ('doctype.php');?>
          * Etape 1: Ouvrir une connexion avec la base de données.
          */
             include ('connection.php');
-        
         ?>
         <div id="wrapper" class='admin'>
             <aside>
@@ -26,20 +25,18 @@ include ('doctype.php');?>
                     echo("Échec de la requete : " . $mysqli->error);
                     exit();
                 }
-
                 /*page
                  * Etape 3 : @todo : Afficher les mots clés en s'inspirant de ce qui a été fait dans news.php
                  * Attention à en pas oublier de modifier tag_id=321 avec l'id du mot dans le lien
                  */
                 while ($tag = $lesInformations->fetch_assoc())
                 {
-/*                     echo "<pre>" . print_r($tag, 1) . "</pre>";
- */                    ?>
+                    // echo "<pre>" . print_r($tag, 1) . "</pre>";
+                    ?>
                     <article>
                         <h3>#<?php echo($tag['label']) ?></h3>
                         <p>id: <?php echo ($tag['id'])?></p>
                         <nav>
-                            <!-- <a href="tags.php?tag_id=" <?php echo ($tag['id'])?> >Messages</a> -->
                             <?php echo('<a href="tags.php?tag_id=' . $tag['id'] . '">Messages</a>'); ?>
                         </nav>
                     </article>

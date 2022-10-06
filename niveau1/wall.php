@@ -7,23 +7,20 @@ include ('doctype.php');
         <?php include ('header.php');?>
         <div id="wrapper">
             <aside>
-            <?php
-            /**
-             * Etape 2: se connecter à la base de donnée
-             */
-            include ('connection.php');
+                <?php
                 /**
-                 * Etape 3: récupérer le nom de l'utilisateur
-                 */                
-                $laQuestionEnSql = "SELECT * FROM users WHERE id= '$userId' ";
-                $lesInformations = $mysqli->query($laQuestionEnSql);
-                $user = $lesInformations->fetch_assoc();
-                //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
-                echo "<pre>" . print_r($user, 1) . "</pre>";
-                ?>
-                <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
-                <?php include ('photo.php');?>
-            </aside>
+                 * Etape 2: se connecter à la base de donnée
+                 */
+                include ('connection.php');
+                    /**
+                     * Etape 3: récupérer le nom de l'utilisateur
+                     */                
+                    $laQuestionEnSql = "SELECT * FROM users WHERE id= '$userId' ";
+                    $lesInformations = $mysqli->query($laQuestionEnSql);
+                    $user = $lesInformations->fetch_assoc();
+                    ?>
+                    <?php include ('photo.php');?>
+                </aside>
             <main>
                 <?php
                 /**
@@ -52,15 +49,14 @@ include ('doctype.php');
                  */
                 while ($post = $lesInformations->fetch_assoc())
                 {
-                    echo "<pre>" . print_r($post, 1) . "</pre>";
                     ?>                
                     <article>
                         <h3>
-                            <time datetime='<?php echo $post['author_name'] ?>' ><?php echo $post['created'] ?></time>
+                            <time datetime='<?php echo $post['author_name']; ?>' ><?php echo $post['created']; ?></time>
                         </h3>
-                        <address><?php echo $post['author_name'] ?></address>
+                        <address><?php echo $post['author_name']; ?></address>
                         <div>
-                            <p><?php echo $post['content'] ?></p>
+                            <p><?php echo $post['content']; ?></p>
                         </div> 
                         <?php include ('footer.php'); ?>
                     </article>

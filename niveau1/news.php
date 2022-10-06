@@ -4,7 +4,9 @@
             include ('header.php');
         ?>
         <div id="wrapper">
-            <?php include ('photo.php');?>
+            <aside>
+                <?php include ('photo.php');?>
+            </aside>
             <main>
                 <?php
                 /*

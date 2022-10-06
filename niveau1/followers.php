@@ -8,15 +8,9 @@ include ('doctype.php');?>
         <?php
             include ('header.php');
         ?>
-        <div id="wrapper">          
+        <div id="wrapper">
             <aside>
-                <img src = "Ecologirl3.jpg" alt = "Portrait de l'utilisatrice"/>
-                <section>
-                    <h3>Présentation</h3>
-                    <p>Sur cette page vous trouverez la liste des personnes qui
-                        suivent les messages de l'utilisatrice
-                        n° <?php echo intval($userId)?></p>
-                </section>
+                <?php include ('photo.php');?>
             </aside>
             <main class='contacts'>
                 <?php

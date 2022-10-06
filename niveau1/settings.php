@@ -7,7 +7,10 @@ include ('doctype.php');
             include 'header.php';
         ?>
         <div id="wrapper" class='profile'> 
-            <main>
+            <aside>
+                <?php include ('photo.php');?>
+            </aside>
+        <main>
                 <?php
                 /**
                  * Etape 1: Les paramètres concernent une utilisatrice en particulier
@@ -17,7 +20,7 @@ include ('doctype.php');
                  * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
                  */
                 /**
-                 * Etape 2: se connecter à la base de donnée
+                 * Etape 2: se connecter à la base de données
                  */
                 include 'connection.php';
                 /**
@@ -48,7 +51,6 @@ include ('doctype.php');
                 //echo "<pre>" . print_r($user, 1) . "</pre>";
                 ?>                
                 <article class='parameters'>
-                    <h3>Mes paramètres</h3>
                     <dl>
                         <dt>Pseudo</dt>
                         <dd><a href=<?php $userId = $user['id']; echo "'wall.php?user_id=$userId'" ?>><?php echo($user['alias']) ?></a></dd>
