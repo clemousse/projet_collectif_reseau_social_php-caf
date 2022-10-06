@@ -7,29 +7,9 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-<<<<<<< HEAD
-        <header>
-            <img src="Logo.jpg" alt="Logo de notre réseau social"/>
-            <nav id="menu">
-                <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=5">Mur</a>
-                <a href="feed.php?user_id=5">Flux</a>
-                <a href="tags.php?tag_id=1">Mots-clés</a>
-            </nav>
-            <nav id="user">
-                <a href="#">Profil</a>
-                <ul>
-                    <li><a href="settings.php?user_id=5">Paramètres</a></li>
-                    <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
-                    <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
-                </ul>
-            </nav>
-        </header>
-=======
         <?php
             include ('header.php');
         ?>
->>>>>>> 4bcbe74d9a01696a4c59919c82e11c8a483f043b
         <div id="wrapper" class='profile'>
 
 
@@ -96,6 +76,10 @@
                         <dd>12</dd>
                         <dt>Nombre de "J'aime" reçus</dt>
                         <dd>53</dd>
+                        <dt>Modifier votre profil</dt>
+                        <dd> oui non</dd>
+                        <dt>Ajouter une photo</dt>
+                        <dd>oui non</dd>
                     </dl>
                 </article>
             </main>
