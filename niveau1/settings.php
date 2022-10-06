@@ -8,13 +8,11 @@
     </head>
     <body>
         <?php
-            include ('header.php');
+            include 'header.php';
         ?>
         <div id="wrapper" class='profile'>
-
-
             <aside>
-                <img src="Ecologirl3.jpg" alt="Portrait de l'utilisatrice"/>
+                <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez les informations de l'utilisatrice
@@ -35,7 +33,7 @@
                 /**
                  * Etape 2: se connecter à la base de donnée
                  */
-                include ('connection.php');
+                include 'connection.php';
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
                  */
@@ -61,26 +59,25 @@
                  * Etape 4: à vous de jouer
                  */
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer les valeurs ci-après puiseffacer la ligne ci-dessous
-                echo "<pre>" . print_r($user, 1) . "</pre>";
+                //echo "<pre>" . print_r($user, 1) . "</pre>";
                 ?>                
                 <article class='parameters'>
-                    <h3>Mes paramètres</h3>
+                    <h3>Mes par</h3>
                     <dl>
-                        <dt>Pseudo</dt>
-                        <dd>Félicie</dd>
-                        <dt>Email</dt>
-                        <dd>felicie@test.org</dd>
-                        <dt>Nombre de message</dt>
-                        <dd>42</dd>
-                        <dt>Nombre de "J'aime" donnés </dt>
-                        <dd>12</dd>
-                        <dt>Nombre de "J'aime" reçus</dt>
-                        <dd>53</dd>
+        
                         <dt>Modifier votre profil</dt>
                         <dd> oui non</dd>
                         <dt>Ajouter une photo</dt>
                         <dd>oui non</dd>
+                        <dd><?php echo($user['email']) ?></dd>
+                        <dt>Nombre de messages</dt>
+                        <dd><?php echo($user['totalpost']) ?> </dd>
+                        <dt>Nombre de 💪  donnés </dt>
+                        <dd><?php echo($user['totalgiven']) ?></dd>
+                        <dt>Nombre de 💪 reçus</dt>
+                        <dd><?php echo($user['totalrecieved']) ?></dd>
                     </dl>
+
                 </article>
             </main>
         </div>

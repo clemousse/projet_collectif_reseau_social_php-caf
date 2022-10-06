@@ -1,6 +1,6 @@
 
 <header>
-    <img src="logo.jpg" alt="Logo de notre réseau social"/>
+    <img src="Logo.jpg" alt="Logo de notre réseau social"/>
     <nav id="menu">
         <a href="news.php?user_id=5">Actualités</a>
         <a href="wall.php?user_id=5">Mur</a>
