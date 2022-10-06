@@ -56,20 +56,19 @@ include ('doctype.php');
                 //echo "<pre>" . print_r($user, 1) . "</pre>";
                 ?>                
                 <article class='parameters'>
-                    <h3>Mes par</h3>
+                    <h3>Mes paramètres</h3>
                     <dl>
                         <dt>Pseudo</dt>
-                        <dd><a href=<?php $userID = $user['id']; echo "'wall.php?user_id=$userID'" ?>><?php echo($user['alias']) ?></a></dd>
+                        <dd><a href=<?php $userId = $user['id']; echo "'wall.php?user_id=$userId'" ?>><?php echo($user['alias']) ?></a></dd>
                         <dt>Email</dt>
                         <dd><?php echo($user['email']) ?></dd>
                         <dt>Nombre de messages</dt>
-                        <dd><?php echo($user['totalpost']) ?> </dd>
+                        <dd><?php echo($user['totalpost']) ?></dd>
                         <dt>Nombre de 💪  donnés </dt>
                         <dd><?php echo($user['totalgiven']) ?></dd>
                         <dt>Nombre de 💪 reçus</dt>
                         <dd><?php echo($user['totalrecieved']) ?></dd>
                     </dl>
-
                 </article>
             </main>
         </div>

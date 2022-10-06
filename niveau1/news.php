@@ -33,7 +33,6 @@
                     echo "</article>";
                     exit();
                 }
-
                 // Etape 2: Poser une question à la base de donnée et récupérer ses informations
                 // cette requete vous est donnée, elle est complexe mais correcte, 
                 // si vous ne la comprenez pas c'est normal, passez, on y reviendra
@@ -61,7 +60,6 @@
                     echo("<p>Indice: Vérifiez la requete  SQL suivante dans phpmyadmin<code>$laQuestionEnSql</code></p>");
                     exit();
                 }
-
                 // Etape 3: Parcourir ces données et les ranger bien comme il faut dans du html
                 // NB: à chaque tour du while, la variable post ci dessous reçois les informations du post suivant.
                 while ($post = $lesInformations->fetch_assoc())
@@ -87,9 +85,7 @@
                         <?php include ('footer.php'); ?>
                     </article>
                     <?php
-                    // avec le <?php ci-dessus on retourne en mode php 
-                    include "post.php";
-                }// cette accolade ferme et termine la boucle while ouverte avant.
+                }
                 ?>
             </main>
         </div>

@@ -1,4 +1,7 @@
-<?php include ('doctype.php');?>
+<?php session_start();
+$userId=$_SESSION['USER_ID'];
+$userAlias=$_SESSION['USER_ALIAS'];
+include ('doctype.php');?>
     <body>
         <?php
             include ('header.php');
@@ -67,21 +70,8 @@
                     // echo "<pre>" . print_r($user, 1) . "</pre>";
                     ?>
                     <article>
-                        <h3><?php echo($user['alias']) ?></h3>
-                        <p>id: <?php echo($user['id']) ?></p>
-                        <nav>
-                            <?php
-                            $id = $user['id'];
-                            $heredoc = <<<END
-                            <a href="wall.php?user_id=$id">Mur</a>
-                            | <a href="feed.php?user_id=$id">Flux</a>
-                            | <a href="settings.php?user_id=$id">Paramètres</a>
-                            | <a href="followers.php?user_id=$id">Suiveurs</a>
-                            | <a href="subscriptions.php?user_id=$id">Abonnements</a>
-                            END;
-                            echo $heredoc;
-                            ?>
-                        </nav>
+                        <h3><?php echo($userAlias) ?></h3>
+                        <p>id: <?php echo($userId) ?></p>
                     </article>
                 <?php } ?>
             </main>

@@ -1,3 +1,11 @@
+<?php
+    // Etape 2: se connecter à la base de données
+    include ('connection.php');
+    // Etape 3: récupérer le nom de l'utilisateur
+    $laQuestionEnSql = "SELECT * FROM `tags`";
+    $tags = $mysqli->query($laQuestionEnSql);
+    print_r ($tags);
+?>
 <header>
     <img src="Logo.jpg" alt="Logo de notre réseau social"/>
     <nav id="menu">
@@ -8,10 +16,27 @@
         <a href="logout.php">Déconnexion</a>
     </nav>
     <nav id="search">
-        <form class="form-inline input-group">
+        <!--<form class="form-inline input-group">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-success" type="submit">Rechercher</button>
-        </form>
+        </form>-->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary" type="button">Rechercher</button>
+            </div>
+            <select class="custom-select" id="inputGroupSelect03">
+                <option selected>Choisissez votre tag</option>
+                <?php 
+                // Etape 4: créer les options de choix de tags
+                while ($tag = $tags->fetch_assoc())
+                {
+                    ?>
+                    <option value='<?php $tag['label'] ?>'><?php $tag['label']?></option>
+                    <?php
+                }
+                ?>
+            </select>
+        </div>
     </div>
     </nav>
     <nav id="user">
