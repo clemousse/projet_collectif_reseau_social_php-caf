@@ -7,34 +7,12 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-<<<<<<< HEAD
-        <header>
-            <img src="Logo.jpg" alt="Logo de notre réseau social"/>
-            <nav id="menu">
-                <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=5">Mur</a>
-                <a href="feed.php?user_id=5">Flux</a>
-                <a href="tags.php?tag_id=1">Mots-clés</a>
-            </nav>
-            <nav id="user">
-                <a href="#">Profil</a>
-                <ul>
-                    <li><a href="settings.php?user_id=5">Paramètres</a></li>
-                    <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
-                    <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
-                </ul>
-            </nav>
-        </header>
-=======
         <?php
-            include ('header.php');
+            include 'header.php';
         ?>
->>>>>>> 4bcbe74d9a01696a4c59919c82e11c8a483f043b
         <div id="wrapper" class='profile'>
-
-
             <aside>
-                <img src="Ecologirl3.jpg" alt="Portrait de l'utilisatrice"/>
+                <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez les informations de l'utilisatrice
@@ -55,7 +33,7 @@
                 /**
                  * Etape 2: se connecter à la base de donnée
                  */
-                include ('connection.php');
+                include 'connection.php';
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
                  */
@@ -81,22 +59,23 @@
                  * Etape 4: à vous de jouer
                  */
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer les valeurs ci-après puiseffacer la ligne ci-dessous
-                echo "<pre>" . print_r($user, 1) . "</pre>";
+                //echo "<pre>" . print_r($user, 1) . "</pre>";
                 ?>                
                 <article class='parameters'>
-                    <h3>Mes paramètres</h3>
+                    <h3>Mes par</h3>
                     <dl>
                         <dt>Pseudo</dt>
-                        <dd>Félicie</dd>
+                        <dd><a href=<?php $userID = $user['id']; echo "'wall.php?user_id=$userID'" ?>><?php echo($user['alias']) ?></a></dd>
                         <dt>Email</dt>
-                        <dd>felicie@test.org</dd>
-                        <dt>Nombre de message</dt>
-                        <dd>42</dd>
-                        <dt>Nombre de "J'aime" donnés </dt>
-                        <dd>12</dd>
-                        <dt>Nombre de "J'aime" reçus</dt>
-                        <dd>53</dd>
+                        <dd><?php echo($user['email']) ?></dd>
+                        <dt>Nombre de messages</dt>
+                        <dd><?php echo($user['totalpost']) ?> </dd>
+                        <dt>Nombre de 💪  donnés </dt>
+                        <dd><?php echo($user['totalgiven']) ?></dd>
+                        <dt>Nombre de 💪 reçus</dt>
+                        <dd><?php echo($user['totalrecieved']) ?></dd>
                     </dl>
+
                 </article>
             </main>
         </div>
