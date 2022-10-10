@@ -9,7 +9,7 @@ include ('doctype.php');
             <aside>
                 <?php
                 /**
-                 * Etape 2: se connecter à la base de donnée
+                 * Etape 2: se connecter à la base de données
                  */
                 include ('connection.php');
                     /**
