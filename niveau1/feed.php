@@ -48,7 +48,7 @@ include ('doctype.php');
                     ORDER BY posts.created DESC  
                     ";
                 $lesInformations = $mysqli->query($laQuestionEnSql);
-                if ( ! $lesInformations)
+                if (!$lesInformations)
                 {
                     echo("Échec de la requete : " . $mysqli->error);
                 }

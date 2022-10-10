@@ -50,6 +50,11 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
         <label for="password" class="form-label">Mot de passe</label>
         <input type="password" class="form-control" id="password" name="password">
     </div>
-    <button type="submit" class="btn btn-primary">Envoyer</button>
+    <button type="submit" class="btn btn-success">Je me connecte</button>
 </form>
+<div>
+    <br/>
+    <p>Pas encore inscrite ?</p>
+    <a href="signup.php">S'inscrire</a>
+</div>
 <?php endif; ?>
