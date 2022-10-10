@@ -4,9 +4,10 @@ With :
 
 - Assetou,
 - Faris,
-- Clémentine.
+- Clémentine,
+- Mehdi.
 
-## STRUCTURE DU CODE.
+## CODE STRUCTURE.
 
 - **Actualités** => _news.php_ : sur cette page vous trouverez les derniers messages de toutes les utilisatrices du site.
 - **Mur** => _wall.php_ : sur cette page vous trouverez tous les messages de l'utilisatrice.
