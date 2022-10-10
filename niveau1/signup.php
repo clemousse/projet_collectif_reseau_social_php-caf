@@ -24,7 +24,7 @@
                             if($mdp === $mdp2) {
                                 $reqmail->close();
                                 $insertmbr=$mysqli->prepare("INSERT INTO users (alias, email, password) VALUES (?, ?, ?)");
-                                $insertmbr->bind_param('sss', $pseudo, $mail, $mdp);
+                                $insertmbr->bind_param('sss', $pseudo, $mail, password_hash($mdp,PASSWORD_DEFAULT));
                                 $insertmbr->execute() or die(print_r($mysqli->errorInfo()));
                                 ?>
                                 <div class="alert alert-success" role="alert">Bravo, votre compte a bien été créé !
@@ -74,11 +74,11 @@
     </div>
     <div class="mb-3">
         <label for="passwordNew" class="form-label">Mot de passe</label>
-        <input type="passwordNew" class="form-control" id="passwordNew" name="passwordNew">
+        <input type="password" class="form-control" id="passwordNew" name="passwordNew">
     </div>
     <div class="mb-3">
         <label for="passwordNew2" class="form-label">Confirmation du mot de passe</label>
-        <input type="passwordNew2" class="form-control" id="passwordNew2" name="passwordNew2">
+        <input type="password" class="form-control" id="passwordNew2" name="passwordNew2">
     </div>
     <input type="submit" name="forminscription" value="Je m'inscris" class="btn btn-success"/>
 </form>
