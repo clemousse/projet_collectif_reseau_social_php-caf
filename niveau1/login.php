@@ -23,7 +23,8 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
             $_SESSION['USER_ID']=$user['id'];
             $_SESSION['USER_ALIAS']=$user['alias'];
         } else {
-            $errorMessage = sprintf('Les informations envoyées ne permettent pas de vous identifier : (%s/%s)');
+            $errorMessage = sprintf('Les informations envoyées ne permettent pas de vous identifier.'
+            );
         }
     }
 }
