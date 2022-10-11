@@ -17,7 +17,7 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
     foreach ($users as $user) {
         if (
             $user['email'] === $_POST['email'] &&
-            $user['password'] === $_POST['password']
+            password_verify($_POST['password'], $user['password'])
         ) {
             $_SESSION['LOGGED_USER']=$user['email'];
             $_SESSION['USER_ID']=$user['id'];
@@ -25,7 +25,7 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
         } else {
             $errorMessage = sprintf('Les informations envoyées ne permettent pas de vous identifier : (%s/%s)',
                 $_POST['email'],
-                $_POST['password']
+                password_hash($user['password'], PASSWORD_DEFAULT)
             );
         }
     }
@@ -50,6 +50,11 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
         <label for="password" class="form-label">Mot de passe</label>
         <input type="password" class="form-control" id="password" name="password">
     </div>
-    <button type="submit" class="btn btn-primary">Envoyer</button>
+    <button type="submit" class="btn btn-success">Je me connecte</button>
 </form>
-<?php endif; ?>
+<div>
+    <br/>
+    <p>Pas encore inscrite ?</p>
+    <a href="signup.php">S'inscrire</a>
+</div>
+<?php endif;?>

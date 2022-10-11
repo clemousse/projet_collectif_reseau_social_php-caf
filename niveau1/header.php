@@ -26,6 +26,7 @@
         <form action="tags.php" method="post">
             <div class="input-group mb-3">
                 <select class="custom-select" id="inputGroupSelect" name="tag">
+                    <option disabled selected value>Choisissez un mot-clé</option>
                     <?php 
                     // Etape 4: créer les options de choix de tags
                     foreach ($tags as $tag) {?>

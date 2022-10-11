@@ -11,7 +11,7 @@ include ('doctype.php');
              * Cette page est TRES similaire à wall.php. 
              * Vous avez sensiblement à y faire la meme chose.
              * Il y a un seul point qui change c'est la requete sql.
-             * Etape 2: se connecter à la base de donnée
+             * Etape 2: se connecter à la base de données
              */
             include ('connection.php');
             ?>
@@ -48,7 +48,7 @@ include ('doctype.php');
                     ORDER BY posts.created DESC  
                     ";
                 $lesInformations = $mysqli->query($laQuestionEnSql);
-                if ( ! $lesInformations)
+                if (!$lesInformations)
                 {
                     echo("Échec de la requete : " . $mysqli->error);
                 }
