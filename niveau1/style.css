@@ -12,6 +12,7 @@ body>header{
     width:80em;
     margin:0 auto 2em auto;    
     padding:0;
+    height:7em;
 
 }
 body>header img{
@@ -26,8 +27,9 @@ body>header #menu {
 body>header #menu a{
     flex:1;
     text-align: center;
-    padding-top:3em;
+    padding-top:2em;
     border-right: 1px solid #99b;
+    font-size:large;
 }
 body>header #user
 {
@@ -38,9 +40,10 @@ body>header #user
 body>header #user a{
     display:block;
     text-align: center;
-    padding:3em 0;
+    padding:2em 0;
     width:100%;
     border-right: 1px solid #99b;
+    font-size:large;
 }
 body>header #user ul{ 
     display: none;
@@ -63,13 +66,14 @@ body>header #user:hover ul{
     display:block;
 }
 body>header #search {
-    margin-top:3em;
+    margin-top:2em;
     text-align: center;
     margin-left: auto;
     flex:0.7;
 }
 body>header a:hover {
     background-color:#79ac8b;
+    color:white !important;
 }
 body>header ul{list-style: none;}
 
@@ -157,5 +161,10 @@ body>header ul{list-style: none;}
 }
 
 pre{
-    color:#aaa;
+    color:rgb(40, 39, 39);
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(75, 73, 73) !important;
+    opacity: 1; /* Firefox */
+  }

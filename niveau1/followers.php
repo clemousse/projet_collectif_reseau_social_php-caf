@@ -1,9 +1,7 @@
 <?php  session_start();
 //Etape 1: Le mur concerne un utilisateur en particulier
 $userId=$_SESSION['USER_ID'];
-
 include ('doctype.php');?>
-
     <body>
         <?php
             include ('header.php');

@@ -1,7 +1,7 @@
-<?php  session_start();
+<?php session_start();
 $userId=$_SESSION['USER_ID'];
 include ('doctype.php');
-include ('header.php');
+include('connection.php');
 //suppression du compte utilisatrice
 if(isset($_POST['userId'])) {
     $userIdInPosts = $mysqli->query("SELECT id FROM posts where user_id=$userId");
@@ -20,13 +20,15 @@ if(isset($_POST['userId'])) {
     $deleteInUsers->bind_param('i', $_POST['userId']);
     $deleteInUsers->execute() or die(print_r($mysqli->errorInfo()));
     $deleteInUsers->close();
-    ;
     //il faudra aussi d'autres requêtes pour supprimer les posts liés au user
     session_destroy();
     header("Location: home.php");
 }
 ?>
     <body>
+        <?php
+            include ('header.php');
+        ?>
         <div id="wrapper" class='profile'> 
             <aside>
                 <?php include ('photo.php');?>

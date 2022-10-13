@@ -30,10 +30,8 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
 ?>
 
 <!-- Si utilisateur/trice est non identifié(e), on affiche le formulaire -->
-<?php if(!isset($_SESSION['LOGGED_USER'])): ?>
-
+<?php if(!isset($_SESSION['LOGGED_USER'])):?>
 	<body>
-		
 		<div class="limiter">
 			<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 				<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">

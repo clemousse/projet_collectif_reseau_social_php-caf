@@ -5,9 +5,6 @@ include ('doctype.php');?>
     <body>
         <?php
             include ('header.php');
-        /**
-         * Etape 1: Ouvrir une connexion avec la base de données.
-         */
             include ('connection.php');
         ?>
         <div id="wrapper" class='admin'>
