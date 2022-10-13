@@ -34,27 +34,46 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
 
 <!-- Si utilisateur/trice est non identifié(e), on affiche le formulaire -->
 <?php if(!isset($_SESSION['LOGGED_USER'])): ?>
-<form action="home.php" method="post">
-    <!-- si message d'erreur on l'affiche -->
-    <?php if(isset($errorMessage)) : ?>
-        <div class="alert alert-danger" role="alert">
-            <?php echo $errorMessage; ?>
-        </div>
-    <?php endif; ?>
-    <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" name="email" aria-describedby="email-help" placeholder="you@exemple.com">
-        <div id="email-help" class="form-text">L'email utilisé lors de la création de compte.</div>
-    </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Mot de passe</label>
-        <input type="password" class="form-control" id="password" name="password">
-    </div>
-    <button type="submit" class="btn btn-success">Je me connecte</button>
-</form>
-<div>
-    <br/>
-    <p>Pas encore inscrite ?</p>
-    <a href="signup.php">S'inscrire</a>
-</div>
-<?php endif;?>
+
+	<body>
+		
+		<div class="limiter">
+			<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+				<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form action="home.php" method="post">
+				<!-- si message d'erreur on l'affiche -->
+				<?php if(isset($errorMessage)) : ?>
+					<div class="alert alert-danger" role="alert">
+						<?php echo $errorMessage; ?>
+					</div>
+				<?php endif; ?>
+				<div class="form outline mb-4">
+					<label class="form-label" for="email">Email</label>
+					
+					<input type="email" class="form-control" id="email" name="email" aria-describedby="email-help" placeholder="you@exemple.com" class="form-control">
+					
+					<div id="email-help" class="form-text">
+						L'email utilisé lors de la création de compte.
+					</div>
+					
+				</div>
+				<div class="mb-4">
+					<label for="password" class="form-label">Mot de passe</label>
+					<input type="password" class="form-control" id="password" name="password" >
+				</div>
+				<button type="submit" class="btn btn-success">Je me connecte</button>
+			</form>
+
+		<div class="register">
+			<br/>
+			<p>Pas encore inscrite ?</p>
+			<a href="signup.php">S'inscrire</a>
+		</div>
+		<?php endif;?>
+				</div>
+			</div>
+		</div>
+	
+	<script src="js/main.js"></script>	
+	</body>
+</html>

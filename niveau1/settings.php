@@ -56,16 +56,17 @@ include ('doctype.php');
                         <dd><a href=<?php $userId = $user['id']; echo "'wall.php?user_id=$userId'" ?>><?php echo($user['alias']) ?></a></dd>
                         <dt>Email</dt>
                         <dd><?php echo($user['email']) ?></dd>
-                        <dt>Nombre de messages</dt>
+                        <dt>Nombre de messages</dt><br />
                         <dd><?php echo($user['totalpost']) ?></dd>
                         <dt>Nombre de 💪  donnés </dt>
                         <dd><?php echo($user['totalgiven']) ?></dd>
-                        <dt>Nombre de 💪 reçus</dt>
+                        <dt>Nombre de 💪 reçus</dt><br />
                         <dd><?php echo($user['totalrecieved']) ?></dd>
-                        <dt>Modifier votre profil</dt>
+                        <dt>Modifier votre profil</dt><br />
                         <dd> oui non</dd>
                         <dt>Ajouter une photo</dt>
-                        <dd>oui non</dd>
+                        <dd>Mettre à jour votre photo de profil</dd>
+
                     </dl>
                 </article>
             </main>
