@@ -4,9 +4,20 @@ include ('doctype.php');
 include ('header.php');
 //suppression du compte utilistrice
 if(isset($_POST['userId'])) {
-    $deleteSQL = $mysqli->prepare("DELETE FROM users WHERE id=?");
-    $deleteSQL->bind_param('i', $_POST['userId']);
-    $deleteSQL->execute() or die(print_r($mysqli->errorInfo()));
+    $userIdInPosts = $mysqli->query("SELECT id FROM posts where user_id=$userId");
+    $deleteInPostsTags = $mysqli->prepare("DELETE FROM posts_tags WHERE post_id=?");
+    $deleteInPostsTags->bind_param('i', $userIdInPosts);
+    $deleteInPostsTags->execute() or die(print_r($mysqli->errorInfo()));
+    $deleteInPostsTags->close();
+    $deleteInPosts = $mysqli->prepare("DELETE FROM posts WHERE user_id=?");
+    $deleteInPosts->bind_param('i', $_POST['userId']);
+    $deleteInPosts->execute() or die(print_r($mysqli->errorInfo()));
+    $deleteInPosts->close();
+    $deleteInUsers = $mysqli->prepare("DELETE FROM users WHERE id=?");
+    $deleteInUsers->bind_param('i', $_POST['userId']);
+    $deleteInUsers->execute() or die(print_r($mysqli->errorInfo()));
+    $deleteInUsers->close();
+    ;
     //il faudra aussi d'autres requêtes pour supprimer les posts liés au user
     session_destroy();
     header("Location: home.php");
