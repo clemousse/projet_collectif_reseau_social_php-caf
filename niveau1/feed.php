@@ -2,20 +2,11 @@
 //Etape 1: Le mur concerne un utilisateur en particulier
 $userId=$_SESSION['USER_ID'];
 include ('doctype.php');
+include ('header.php');
 ?>
-    <body>
-        <?php include ('header.php');?>
-        <div id="wrapper">
-            <?php
-            /**
-             * Cette page est TRES similaire à wall.php. 
-             * Vous avez sensiblement à y faire la meme chose.
-             * Il y a un seul point qui change c'est la requete sql.
-             * Etape 2: se connecter à la base de données
-             */
-            include ('connection.php');
-            ?>
-            <aside>
+<div id="wrapper">
+    <?php include ('connection.php');?>
+    <aside>
                 <?php
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
@@ -25,8 +16,8 @@ include ('doctype.php');
                 $user = $lesInformations->fetch_assoc();
                 include ('photo.php');
                 ?>
-            </aside>
-            <main>
+    </aside>
+    <main>
                 <?php
                 /**
                  * Etape 3: récupérer tous les messages des abonnements
@@ -75,7 +66,5 @@ include ('doctype.php');
                 }
                 // et de pas oublier de fermer ici vote while
                 ?>
-            </main>
-        </div>
-    </body>
-</html>
+    </main>
+</div>

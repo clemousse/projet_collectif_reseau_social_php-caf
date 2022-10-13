@@ -2,18 +2,15 @@
 //Etape 1: Le mur concerne un utilisateur en particulier
 $userId=$_SESSION['USER_ID'];
 
-include ('doctype.php');?>
-
-    <body>
+include ('doctype.php');
+include ('header.php');
+?>
+<div id="wrapper">
+    <aside>
+        <?php include ('photo.php');?>
+    </aside>
+    <main class='contacts'>
         <?php
-            include ('header.php');
-        ?>
-        <div id="wrapper">
-            <aside>
-                <?php include ('photo.php');?>
-            </aside>
-            <main class='contacts'>
-                <?php
                 // Etape 2: se connecter à la base de donnée
                 include ('connection.php');
                 // Etape 3: récupérer le nom de l'utilisateur
@@ -39,7 +36,5 @@ include ('doctype.php');?>
                 <?php
                     }
                 ?>
-            </main>
-        </div>
-    </body>
-</html>
+    </main>
+</div>

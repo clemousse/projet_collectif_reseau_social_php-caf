@@ -1,17 +1,12 @@
 <?php session_start();
 $userId=$_SESSION['USER_ID'];
 $userAlias=$_SESSION['USER_ALIAS'];
-include ('doctype.php');?>
-    <body>
-        <?php
-            include ('header.php');
-        /**
-         * Etape 1: Ouvrir une connexion avec la base de données.
-         */
-            include ('connection.php');
-        ?>
-        <div id="wrapper" class='admin'>
-            <aside>
+include ('doctype.php');
+include ('header.php');
+include ('connection.php');
+?>
+<div id="wrapper" class='admin'>
+    <aside>
                 <h2>Mots-clés</h2>
                 <?php
                 /*
@@ -41,8 +36,8 @@ include ('doctype.php');?>
                         </nav>
                     </article>
                 <?php } ?>
-            </aside>
-            <main>
+    </aside>
+    <main>
                 <h2>Utilisatrices</h2>
                 <?php
                 /*
@@ -71,7 +66,5 @@ include ('doctype.php');?>
                         <p>id: <?php echo($userId) ?></p>
                     </article>
                 <?php } ?>
-            </main>
-        </div>
-    </body>
-</html>
+    </main>
+</div>

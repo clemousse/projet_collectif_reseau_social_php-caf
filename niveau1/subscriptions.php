@@ -2,11 +2,8 @@
 // Etape 1: récupérer l'id de l'utilisateur
 $userId=$_SESSION['USER_ID'];
 include ('doctype.php');
+include ('header.php');
 ?>
-    <body>
-        <?php
-            include ('header.php');
-        ?>
         <div id="wrapper">
             <aside>
                 <?php include ('photo.php');?>
@@ -40,5 +37,3 @@ include ('doctype.php');
                 ?>
             </main>
         </div>
-    </body>
-</html>

@@ -1,14 +1,13 @@
-<?php include ('doctype.php'); ?>
-    <body>
+<?php 
+include ('doctype.php');
+include ('header.php');
+?>
+<div id="wrapper">
+    <aside>
+        <?php include ('photo.php');?>
+    </aside>
+    <main>
         <?php
-            include ('header.php');
-        ?>
-        <div id="wrapper">
-            <aside>
-                <?php include ('photo.php');?>
-            </aside>
-            <main>
-                <?php
                 /*
                   // C'est ici que le travail PHP commence
                   // Votre mission si vous l'acceptez est de chercher dans la base
@@ -82,7 +81,5 @@
                     <?php
                 }
                 ?>
-            </main>
-        </div>
-    </body>
-</html>
+    </main>
+</div>
