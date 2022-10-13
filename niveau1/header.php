@@ -10,15 +10,21 @@
     // }
 ?>
 <header>
-    <img src="logotala.png" alt="Logo de notre réseau social"/>
+    <a href="news.php" title="logo">
+        <img src="logotala.png" alt="logo "/>
+    </a> 
     <nav id="menu">
-        <a href="news.php">Actualités🪴</a>
+        <a href="news.php">Actualités🪴</a>            
         <a href="wall.php">Mur🌿</a>
         <a href="feed.php">Flux🌱</a>
         <a href="tags.php">Mots-clés🍀</a>
         <a href="logout.php">Déconnexion</a>
     </nav>
     <nav id="search">
+        <!--<form class="form-inline input-group">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Rechercher</button>
+        </form>-->
         <form action="tags.php" method="post">
             <div class="input-group mb-3">
                 <select class="custom-select" id="inputGroupSelect" name="tag">
