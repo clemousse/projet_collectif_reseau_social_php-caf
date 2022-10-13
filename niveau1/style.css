@@ -1,5 +1,5 @@
 body{
- background-color:rgb(38, 130, 95); 
+    background-color:rgb(2, 62, 39);  
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -69,7 +69,7 @@ body>header #search {
     flex:0.7;
 }
 body>header a:hover {
-    background-color:#79ac8b;
+    background-color:#d7dcdd;
 }
 body>header ul{list-style: none;}
 
@@ -97,7 +97,7 @@ body>header ul{list-style: none;}
     overflow-y:  scroll;
 }
 #wrapper main article{
-    background-color: rgba(255, 255, 255, 0.909);
+    background-color: #fff;
     padding:1em;
     margin-bottom: 1em ;
     border-radius: 1em;

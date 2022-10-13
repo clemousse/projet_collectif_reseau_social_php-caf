@@ -1,13 +1,14 @@
-<?php 
-include ('doctype.php');
-include ('header.php');
-?>
-<div id="wrapper">
-    <aside>
-        <?php include ('photo.php');?>
-    </aside>
-    <main>
+<?php include ('doctype.php'); ?>
+    <body>
         <?php
+            include ('header.php');
+        ?>
+        <div id="wrapper">
+            <aside>
+                <?php include ('photo.php');?>
+            </aside>
+            <main>
+                <?php
                 /*
                   // C'est ici que le travail PHP commence
                   // Votre mission si vous l'acceptez est de chercher dans la base
@@ -43,7 +44,7 @@ include ('header.php');
                     LEFT JOIN likes      ON likes.post_id  = posts.id 
                     GROUP BY posts.id
                     ORDER BY posts.created DESC  
-                    LIMIT 7
+                    LIMIT 5
                     ";
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 // Vérification
@@ -81,5 +82,7 @@ include ('header.php');
                     <?php
                 }
                 ?>
-    </main>
-</div>
+            </main>
+        </div>
+    </body>
+</html>

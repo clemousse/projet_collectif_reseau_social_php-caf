@@ -19,10 +19,6 @@
         <a href="logout.php">Déconnexion</a>
     </nav>
     <nav id="search">
-        <!--<form class="form-inline input-group">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-success" type="submit">Rechercher</button>
-        </form>-->
         <form action="tags.php" method="post">
             <div class="input-group mb-3">
                 <select class="custom-select" id="inputGroupSelect" name="tag">
