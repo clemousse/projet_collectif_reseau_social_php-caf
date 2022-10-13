@@ -69,24 +69,24 @@ if(isset($_POST['userId'])) {
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer les valeurs ci-après puiseffacer la ligne ci-dessous
                 //echo "<pre>" . print_r($user, 1) . "</pre>";
                 ?>                
-                    <article class='parameters'>
+                    <article id="parameters" class='parameters'>
                         <dl>
-                            <dt>Pseudo</dt><br/>
+                            <dt>Pseudo</dt>
                             <dd><a href=<?php $userId = $user['id']; echo "'wall.php?user_id=$userId'" 
                             ?>><?php echo($user['alias']) ?></a></dd>
-                            <dt>Email</dt><br/>
+                            <dt>Email</dt>
                             <dd><?php echo($user['email']) ?></dd>
-                            <dt>Nombre de messages</dt><br/>
+                            <dt>Nombre de messages</dt>
                             <dd><?php echo($user['totalpost']) ?></dd>
-                            <dt>Nombre de 💪  donnés </dt><br/>
+                            <dt>Nombre de 💪  donnés </dt>
                             <dd><?php echo($user['totalgiven']) ?></dd>
-                            <dt>Nombre de 💪 reçus</dt><br/>
+                            <dt>Nombre de 💪 reçus</dt>
                             <dd><?php echo($user['totalrecieved']) ?></dd>
-                            <dt>Modifier votre profil</dt><br/>
+                            <dt>Modifier votre profil</dt>
                             <dd>oui non</dd>
-                            <dt>Ajouter une photo</dt><br/>
+                            <dt>Ajouter une photo</dt>
                             <dd>Mettre à jour votre photo de profil</dd>
-                            <dt>Supprimer mon compte</dt><br />
+                            <dt>Supprimer mon compte</dt>
                             <dd><a href="#delete" data-bs-toggle="modal" data-bs-target="#delete">Supprimer toutes mes informations</a></dd>
                         </dl>
                         <!-- Boîte de dialogue pour supprimer son compte-->

@@ -1,9 +1,9 @@
 body{
- background-color:rgb(38, 130, 95); 
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+background-color:rgb(38, 130, 95); 
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-a{text-decoration: none; color:rgb(1, 39, 24);}
+a{text-decoration: none; color:rgb(1, 39, 24);font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif}
 a:hover{text-decoration: solid;}
 
 body>header{
@@ -167,4 +167,8 @@ pre{
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: rgb(75, 73, 73) !important;
     opacity: 1; /* Firefox */
-  }
+}
+
+#parameters a{
+    font-size:16px !important;
+}
