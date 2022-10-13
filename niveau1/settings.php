@@ -5,10 +5,13 @@ include ('header.php');
 //suppression du compte utilistrice
 if(isset($_POST['userId'])) {
     $userIdInPosts = $mysqli->query("SELECT id FROM posts where user_id=$userId");
-    $deleteInPostsTags = $mysqli->prepare("DELETE FROM posts_tags WHERE post_id=?");
-    $deleteInPostsTags->bind_param('i', $userIdInPosts);
-    $deleteInPostsTags->execute() or die(print_r($mysqli->errorInfo()));
-    $deleteInPostsTags->close();
+    while ($id = $userIdInPosts->fetch_assoc())
+        {
+            $deleteInPostsTags = $mysqli->prepare("DELETE FROM posts_tags WHERE post_id=?");
+            $deleteInPostsTags->bind_param('i', $id['id']);
+            $deleteInPostsTags->execute() or die(print_r($mysqli->errorInfo()));
+            $deleteInPostsTags->close();
+        }
     $deleteInPosts = $mysqli->prepare("DELETE FROM posts WHERE user_id=?");
     $deleteInPosts->bind_param('i', $_POST['userId']);
     $deleteInPosts->execute() or die(print_r($mysqli->errorInfo()));
