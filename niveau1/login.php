@@ -35,7 +35,7 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
 		<div class="limiter">
 			<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 				<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form action="home.php" method="post">
+				<form action="home.php" method="post" autocomplete="off">
 				<!-- si message d'erreur on l'affiche -->
 				<?php if(isset($errorMessage)) : ?>
 					<div class="alert alert-danger" role="alert">

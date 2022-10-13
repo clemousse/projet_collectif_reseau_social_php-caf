@@ -63,7 +63,7 @@
     <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
         <div class="page-content" >
             <div class="form-v9-content" style="background: white";>
-                <form class="form-detail" action="" method="post">
+                <form class="form-detail" action="" method="post" autocomplete="off">
                     <h2>Creér un compte</h2>
                     <div class="form-row-total">
                         <div class="form-row">
