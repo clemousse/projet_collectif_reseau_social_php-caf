@@ -4,7 +4,10 @@ include ('doctype.php');
 include ('header.php');
 //suppression du compte utilistrice
 if(isset($_POST['userId'])) {
+    //because of the foreign key constraints between tables posts, posts_tags and users, we need to delete first of all the items in posts_tags, then in posts, then in users to delete entirely the account of the user.
+    //1 - select posts id of the user
     $userIdInPosts = $mysqli->query("SELECT id FROM posts where user_id=$userId");
+    //2 - delete the corresponding posts in posts_tags using a while loop (because there are maybe several posts)
     while ($id = $userIdInPosts->fetch_assoc())
         {
             $deleteInPostsTags = $mysqli->prepare("DELETE FROM posts_tags WHERE post_id=?");
@@ -12,16 +15,17 @@ if(isset($_POST['userId'])) {
             $deleteInPostsTags->execute() or die(print_r($mysqli->errorInfo()));
             $deleteInPostsTags->close();
         }
+    //3 - delete the corresponding posts in posts
     $deleteInPosts = $mysqli->prepare("DELETE FROM posts WHERE user_id=?");
     $deleteInPosts->bind_param('i', $_POST['userId']);
     $deleteInPosts->execute() or die(print_r($mysqli->errorInfo()));
     $deleteInPosts->close();
+    //4 - delete the user (eventually ! )
     $deleteInUsers = $mysqli->prepare("DELETE FROM users WHERE id=?");
     $deleteInUsers->bind_param('i', $_POST['userId']);
     $deleteInUsers->execute() or die(print_r($mysqli->errorInfo()));
     $deleteInUsers->close();
     ;
-    //il faudra aussi d'autres requêtes pour supprimer les posts liés au user
     session_destroy();
     header("Location: home.php");
 } 
