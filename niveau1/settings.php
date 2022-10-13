@@ -24,9 +24,7 @@ if(isset($_POST['userId'])) {
     //il faudra aussi d'autres requêtes pour supprimer les posts liés au user
     session_destroy();
     header("Location: home.php");
-} else {
-    echo('Il faut un identifiant utilisatrice valide pour supprimer votre compte !');
-};
+} 
 ?>
 
 <div id="wrapper" class='profile'> 
