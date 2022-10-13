@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5deb2
+-- version 5.1.1deb5ubuntu1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : lun. 07 déc. 2020 à 12:31
--- Version du serveur :  10.3.25-MariaDB-0ubuntu0.20.04.1
--- Version de PHP : 7.4.3
+-- Host: localhost:3306
+-- Generation Time: Oct 11, 2022 at 10:32 AM
+-- Server version: 8.0.30-0ubuntu0.22.04.1
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,26 +18,41 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `socialnetwork`
+-- Database: `socialnetwork`
 --
-CREATE DATABASE IF NOT EXISTS `socialnetwork` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `socialnetwork`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `followers`
+-- Table structure for table `current_tag`
 --
 
-DROP TABLE IF EXISTS `followers`;
+CREATE TABLE `current_tag` (
+  `id` int UNSIGNED NOT NULL DEFAULT '0',
+  `label` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `current_tag`
+--
+
+INSERT INTO `current_tag` (`id`, `label`) VALUES
+(1, 'féminisme');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `followers`
+--
+
 CREATE TABLE `followers` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `followed_user_id` int(10) UNSIGNED NOT NULL,
-  `following_user_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int UNSIGNED NOT NULL,
+  `followed_user_id` int UNSIGNED NOT NULL,
+  `following_user_id` int UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `followers`
+-- Dumping data for table `followers`
 --
 
 INSERT INTO `followers` (`id`, `followed_user_id`, `following_user_id`) VALUES
@@ -57,18 +71,17 @@ INSERT INTO `followers` (`id`, `followed_user_id`, `following_user_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `likes`
+-- Table structure for table `likes`
 --
 
-DROP TABLE IF EXISTS `likes`;
 CREATE TABLE `likes` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `post_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int UNSIGNED NOT NULL,
+  `user_id` int UNSIGNED NOT NULL,
+  `post_id` int UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `likes`
+-- Dumping data for table `likes`
 --
 
 INSERT INTO `likes` (`id`, `user_id`, `post_id`) VALUES
@@ -90,20 +103,19 @@ INSERT INTO `likes` (`id`, `user_id`, `post_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `posts`
+-- Table structure for table `posts`
 --
 
-DROP TABLE IF EXISTS `posts`;
 CREATE TABLE `posts` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
+  `user_id` int UNSIGNED NOT NULL,
   `content` text NOT NULL,
   `created` datetime NOT NULL,
-  `parent_id` int(10) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `parent_id` int UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `posts`
+-- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `content`, `created`, `parent_id`) VALUES
@@ -121,18 +133,17 @@ INSERT INTO `posts` (`id`, `user_id`, `content`, `created`, `parent_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `posts_tags`
+-- Table structure for table `posts_tags`
 --
 
-DROP TABLE IF EXISTS `posts_tags`;
 CREATE TABLE `posts_tags` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `post_id` int(10) UNSIGNED NOT NULL,
-  `tag_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int UNSIGNED NOT NULL,
+  `post_id` int UNSIGNED NOT NULL,
+  `tag_id` int UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `posts_tags`
+-- Dumping data for table `posts_tags`
 --
 
 INSERT INTO `posts_tags` (`id`, `post_id`, `tag_id`) VALUES
@@ -151,17 +162,16 @@ INSERT INTO `posts_tags` (`id`, `post_id`, `tag_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tags`
+-- Table structure for table `tags`
 --
 
-DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
   `label` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `tags`
+-- Dumping data for table `tags`
 --
 
 INSERT INTO `tags` (`id`, `label`) VALUES
@@ -178,36 +188,45 @@ INSERT INTO `tags` (`id`, `label`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `alias` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `alias`) VALUES
-(1, 'ada@test.org', '098f6bcd4621d373cade4e832627b4f6', 'ada'),
-(2, 'alex@test.org', '098f6bcd4621d373cade4e832627b4f6', 'Alexandra'),
-(3, 'bea@test.org', '098f6bcd4621d373cade4e832627b4f6', 'Béatrice'),
-(4, 'zoe@test.org', '098f6bcd4621d373cade4e832627b4f6', 'Zoé'),
-(5, 'felicie@test.org', '098f6bcd4621d373cade4e832627b4f6', 'Félicie'),
-(6, 'cecile@test.com', '098f6bcd4621d373cade4e832627b4f6', 'Cécile'),
-(7, 'chacha@test.net', '098f6bcd4621d373cade4e832627b4f6', 'Charlotte');
+(1, 'ada@test.org', '$2y$10$UpguArLh.oFaWwn7dHF/sOSLy9oTv7N2bgFJVfD8xerWkVsL5xVx.', 'ada'),
+(2, 'alex@test.org', '$2y$10$UpguArLh.oFaWwn7dHF/sOSLy9oTv7N2bgFJVfD8xerWkVsL5xVx.', 'Alexandra'),
+(3, 'bea@test.org', '$2y$10$UpguArLh.oFaWwn7dHF/sOSLy9oTv7N2bgFJVfD8xerWkVsL5xVx.', 'Béatrice'),
+(4, 'zoe@test.org', '$2y$10$UpguArLh.oFaWwn7dHF/sOSLy9oTv7N2bgFJVfD8xerWkVsL5xVx.', 'Zoé'),
+(5, 'felicie@test.org', '$2y$10$UpguArLh.oFaWwn7dHF/sOSLy9oTv7N2bgFJVfD8xerWkVsL5xVx.', 'Félicie'),
+(6, 'cecile@test.com', '$2y$10$UpguArLh.oFaWwn7dHF/sOSLy9oTv7N2bgFJVfD8xerWkVsL5xVx.', 'Cécile'),
+(7, 'chacha@test.net', '$2y$10$UpguArLh.oFaWwn7dHF/sOSLy9oTv7N2bgFJVfD8xerWkVsL5xVx.', 'Charlotte'),
+(20, 'clemchasles@gmail.com', '$2y$10$UpguArLh.oFaWwn7dHF/sOSLy9oTv7N2bgFJVfD8xerWkVsL5xVx.', 'clemousse'),
+(21, 'lola@test.org', '$2y$10$Nz94tj7bF/m9dk4Pbyl7aO3oRRS.Asj.x7siiq3ttwa5D1EAyXHIO', 'Lola'),
+(22, 'test@test.org', '$2y$10$UpguArLh.oFaWwn7dHF/sOSLy9oTv7N2bgFJVfD8xerWkVsL5xVx.', 'test');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `followers`
+-- Indexes for table `current_tag`
+--
+ALTER TABLE `current_tag`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `label_unique` (`label`);
+
+--
+-- Indexes for table `followers`
 --
 ALTER TABLE `followers`
   ADD PRIMARY KEY (`id`),
@@ -215,7 +234,7 @@ ALTER TABLE `followers`
   ADD KEY `fk_users_has_users_users1_idx` (`followed_user_id`);
 
 --
--- Index pour la table `likes`
+-- Indexes for table `likes`
 --
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`id`),
@@ -223,7 +242,7 @@ ALTER TABLE `likes`
   ADD KEY `fk_users_has_posts_users1_idx` (`user_id`);
 
 --
--- Index pour la table `posts`
+-- Indexes for table `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
@@ -231,7 +250,7 @@ ALTER TABLE `posts`
   ADD KEY `fk_posts_posts1_idx` (`parent_id`);
 
 --
--- Index pour la table `posts_tags`
+-- Indexes for table `posts_tags`
 --
 ALTER TABLE `posts_tags`
   ADD PRIMARY KEY (`id`),
@@ -239,14 +258,14 @@ ALTER TABLE `posts_tags`
   ADD KEY `fk_posts_has_tags_posts1_idx` (`post_id`);
 
 --
--- Index pour la table `tags`
+-- Indexes for table `tags`
 --
 ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `label_UNIQUE` (`label`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -254,72 +273,72 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `alias_UNIQUE` (`alias`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `followers`
+-- AUTO_INCREMENT for table `followers`
 --
 ALTER TABLE `followers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT pour la table `likes`
+-- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT pour la table `posts`
+-- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT pour la table `posts_tags`
+-- AUTO_INCREMENT for table `posts_tags`
 --
 ALTER TABLE `posts_tags`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT pour la table `tags`
+-- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `followers`
+-- Constraints for table `followers`
 --
 ALTER TABLE `followers`
   ADD CONSTRAINT `fk_users_has_users_users1` FOREIGN KEY (`followed_user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `fk_users_has_users_users2` FOREIGN KEY (`following_user_id`) REFERENCES `users` (`id`);
 
 --
--- Contraintes pour la table `likes`
+-- Constraints for table `likes`
 --
 ALTER TABLE `likes`
   ADD CONSTRAINT `fk_users_has_posts_posts1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`),
   ADD CONSTRAINT `fk_users_has_posts_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Contraintes pour la table `posts`
+-- Constraints for table `posts`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `fk_posts_posts1` FOREIGN KEY (`parent_id`) REFERENCES `posts` (`id`),
   ADD CONSTRAINT `fk_posts_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Contraintes pour la table `posts_tags`
+-- Constraints for table `posts_tags`
 --
 ALTER TABLE `posts_tags`
   ADD CONSTRAINT `fk_posts_has_tags_posts1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`),

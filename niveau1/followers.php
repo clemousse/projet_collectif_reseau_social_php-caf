@@ -31,7 +31,7 @@ include ('doctype.php');?>
                 {
                     ?>
                     <article>
-                        <img src="Ecologirl3.jpg" alt="blason"/>
+                        <img src="photoresizing" alt="blason"/>
                         <h3><?php echo $post['alias'] ?></h3>
                         <p> <?php echo $post['id']
                         ?></p>
