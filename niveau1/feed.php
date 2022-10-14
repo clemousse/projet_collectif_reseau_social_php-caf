@@ -1,37 +1,18 @@
-<?php  session_start();
-//Etape 1: Le mur concerne un utilisateur en particulier
-$userId=$_SESSION['USER_ID'];
-include ('doctype.php');
+<?php session_start();
+$userId = $_SESSION['USER_ID'];
+include('doctype.php');
+include('connection.php');
 ?>
-    <body>
-        <?php include ('header.php');?>
-        <div id="wrapper">
+
+<body>
+    <?php include('header.php'); ?>
+    <div id="wrapper">
+        <aside><?php include('aside.php'); ?>
+        </aside>
+        <main>
             <?php
-            /**
-             * Cette page est TRES similaire à wall.php. 
-             * Vous avez sensiblement à y faire la meme chose.
-             * Il y a un seul point qui change c'est la requete sql.
-             * Etape 2: se connecter à la base de données
-             */
-            include ('connection.php');
-            ?>
-            <aside>
-                <?php
-                /**
-                 * Etape 3: récupérer le nom de l'utilisateur
-                 */
-                $laQuestionEnSql = "SELECT * FROM `users` WHERE id= '$userId' ";
-                $lesInformations = $mysqli->query($laQuestionEnSql);
-                $user = $lesInformations->fetch_assoc();
-                include ('photo.php');
-                ?>
-            </aside>
-            <main>
-                <?php
-                /**
-                 * Etape 3: récupérer tous les messages des abonnements
-                 */
-                $laQuestionEnSql = "
+            //get the posts from users's subscriptions
+            $reqPostsSubs = "
                     SELECT posts.content,
                     posts.created,
                     users.alias as author_name,  
@@ -47,35 +28,27 @@ include ('doctype.php');
                     GROUP BY posts.id
                     ORDER BY posts.created DESC  
                     ";
-                $lesInformations = $mysqli->query($laQuestionEnSql);
-                if (!$lesInformations)
-                {
-                    echo("Échec de la requete : " . $mysqli->error);
-                }
-
-                /**
-                 * Etape 4: @todo Parcourir les messages et remplir correctement le HTML avec les bonnes valeurs php
-                 * A vous de retrouver comment faire la boucle while de parcours...
-                 */
-                
-                while ($post = $lesInformations->fetch_assoc())
-                {
-                ?>               
+            $posts = $mysqli->query($reqPostsSubs);
+            if (!$posts) {
+                echo ("Échec de la requete : " . $mysqli->error);
+            }
+            while ($post = $posts->fetch_assoc()) {
+            ?>
                 <article>
                     <h3>
-                        <time datetime='<?php echo $post['created'] ?>' ><?php echo $post['created']; ?></time>
+                        <time datetime='<?php echo $post['created'] ?>'><?php echo $post['created']; ?></time>
                     </h3>
                     <address></address>
                     <div>
                         <p><?php echo $post['content']; ?></p>
-                    </div>                                            
-                    <?php include ('footer.php'); ?>
+                    </div>
+                    <?php include('footer.php'); ?>
                 </article>
-                <?php
-                }
-                // et de pas oublier de fermer ici vote while
-                ?>
-            </main>
-        </div>
-    </body>
+            <?php
+            }
+            ?>
+        </main>
+    </div>
+</body>
+
 </html>
